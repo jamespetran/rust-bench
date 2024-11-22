@@ -18,24 +18,26 @@ The benchmark is easily gamed of course, just by writing a "Hello World" program
 |-------|--------|--------|---------------|--------|---------------|--------|
 | | First Attempt | Correction | First Attempt | Correction | First Attempt | Correction |
 | **Closed Source Models** |||||||
-| openai/o1-preview-2024-09-12 | 66.3% | 85.5% | 47.5% | 72.5% | 83.7% | 97.7% |
-| openai/o1-mini-2024-09-12 | 47.6% | 73.5% | 20.0% | 58.8% | 74.4% | 87.2% |
-| openai/gpt-4o-mini | 39.8% | 57.8% | 14.3% | 30.8% | 62.3% | 82.9% |
-| openai/chatgpt-4o-latest | 57.6% | 79.3% | 34.8% | 60.4% | 79.7% | 96.9% |
-| openai/gpt-3.5-turbo-0125 | 40.7% | 56.8% | 20.5% | 41.0% | 59.5% | 71.4% |
-| anthropic/claude-3.5-sonnet | 65.9% | 81.9% | 45.8% | 68.3% | 84.7% | 94.6% |
-| anthropic/claude-3-5-haiku | 58.4% | 76.3% | 37.9% | 60.0% | 76.9% | 91.5% |
-| google/gemini-pro-1.5 | 51.8% | 72.3% | 27.5% | 46.2% | 74.4% | 96.5% |
-| google/gemini-flash-1.5 | 30.7% | 43.8% | 9.8% | 31.2% | 40.5% | 55.4% |
-| x-ai/grok-beta | 24.1% | 42.2% | 7.5% | 20.0% | 39.5% | 62.8% |
+| openai/o1-preview-2024-09-12 | 66.3% | 85.5% | 47.5% | 75.0% | 83.7% | 95.3% |
+| openai/o1-mini-2024-09-12 | 48.2% | 73.5% | 25.0% | 56.2% | 69.8% | 89.5% |
+| openai/gpt-4o-mini | 38.6% | 58.3% | 14.8% | 35.0% | 60.9% | 79.9% |
+| openai/chatgpt-4o-latest | 58.1% | 79.3% | 33.8% | 60.4% | 80.7% | 96.9% |
+| openai/gpt-3.5-turbo-0125 | 39.8% | 55.8% | 22.5% | 40.8% | 55.8% | 69.8% |
+| anthropic/claude-3.5-sonnet | 65.9% | 81.9% | 47.2% | 68.3% | 83.3% | 94.6% |
+| anthropic/claude-3-5-haiku | 55.6% | 75.6% | 35.8% | 59.6% | 74.1% | 90.4% |
+| google/gemini-pro-1.5 | 51.8% | 72.3% | 28.8% | 50.0% | 73.3% | 93.0% |
+| google/gemini-flash-1.5 | 27.3% | 46.9% | 10.2% | 29.4% | 43.2% | 63.2% |
+| x-ai/grok-beta | 24.1% | 42.2% | 6.2% | 17.5% | 40.7% | 65.1% |
 | **Open Source Models** |||||||
-| qwen/qwen-2.5-coder-32b-instruct | 33.3% | 49.2% | 13.1% | 20.4% | 54.3% | 76.0% |
-| nousresearch/hermes-3-llama-3.1-405b | 45.7% | 59.3% | 16.7% | 33.3% | 72.6% | 83.3% |
-| meta-llama/llama-3.1-405b-instruct | 36.1% | 62.7% | 12.5% | 32.5% | 58.1% | 90.7% |
-| meta-llama/llama-3.1-70b-instruct | 20.3% | 40.6% | 11.4% | 29.4% | 27.8% | 51.4% |
-| mistralai/mistral-large-2411 | 27.7% | 42.8% | 8.8% | 26.2% | 45.3% | 58.1% |
+| qwen/qwen-2.5-coder-32b-instruct | 35.3% | 51.4% | 14.2% | 25.7% | 54.8% | 75.3% |
+| nousresearch/hermes-3-llama-3.1-405b | 45.0% | 59.0% | 16.2% | 31.2% | 71.7% | 84.9% |
+| meta-llama/llama-3.1-405b-instruct | 36.1% | 62.7% | 7.5% | 32.5% | 62.8% | 90.7% |
+| meta-llama/llama-3.1-70b-instruct | 20.1% | 42.2% | 10.0% | 24.6% | 29.5% | 58.5% |
+| mistralai/mistral-large-2411 | 27.7% | 42.8% | 6.2% | 22.5% | 47.7% | 61.6% |
 | mistralai/codestral-mamba | 18.6% | 24.2% | 3.5% | 9.0% | 32.6% | 38.4% |
-| deepseek/deepseek-chat | 36.0% | 51.8% | 12.5% | 27.5% | 58.3% | 75.0% |
+| deepseek/deepseek-chat | 35.5% | 52.4% | 10.0% | 27.5% | 59.3% | 75.6% |
+| microsoft/phi-3.5-mini-128k-instruct | 0.6% | 1.2% | 0.0% | 0.0% | 1.2% | 2.3% |
+| liquid/lfm-40b | 4.2% | 4.2% | 1.2% | 2.5% | 7.0% | 5.8% |
 
 ## Benchmark ##
 
