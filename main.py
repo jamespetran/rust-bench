@@ -35,41 +35,30 @@ model = "anthropic/claude-3.5-sonnet"
 #model = "openai/gpt-4o-mini"
 #model = "openai/gpt-3.5-turbo-0125"
 #model = "mistralai/codestral-mamba"
-#model = "google/gemini-flash-1.5" # Tripe backtick, easy
+#model = "google/gemini-flash-1.5"
 #model = "google/gemini-pro-1.5"
-#model = "meta-llama/llama-3.1-70b-instruct", # same
+#model = "meta-llama/llama-3.1-70b-instruct",
 #model = "meta-llama/llama-3.1-405b-instruct"
-#model = "nousresearch/hermes-3-llama-3.1-405b", # Tripe backtick, easy
+#model = "nousresearch/hermes-3-llama-3.1-405b",
 #model = "microsoft/phi-3.5-mini-128k-instruct"
 #model = "liquid/lfm-40b:free"
+#model = "liquid/lfm-40b"
 #model = "deepseek/deepseek-chat"
 
-models = ["anthropic/claude-3-5-haiku", "qwen/qwen-2.5-coder-32b-instruct", "openai/gpt-4o-mini"]*3
+models = ["qwen/qwen-2.5-coder-32b-instruct"]
 
 client = AsyncOpenAI(
   base_url="https://openrouter.ai/api/v1",
   api_key=open_router_key,
 )
 
-def get_forbidden_ids(main_model):
-    filename = "results/merged.jsonl"
-    problem_ids = []
-    with open(filename, "r") as f:
-        for line in f:
-            data = json.loads(line)
-            model = data["model"]
-            problem_id = data["problem_id"]
-            if model == main_model:
-                problem_ids.append(problem_id)
-    return problem_ids
-           
 
 async def write_jsonl(filename: str, data: Dict[str, Any]) -> None:
     async with aiofiles.open(filename, mode='a') as file:
         json_line = json.dumps(data) + '\n'
         await file.write(json_line)
 
-async def attempt_solution(model: str, prompt: str, executor: ProcessPoolExecutor) -> tuple[str, str, bool]:
+async def attempt_solution(model: str, prompt: str, executor: ProcessPoolExecutor) -> tuple[str, str, bool, bool]:
     completion = await client.chat.completions.create(
         model=model,
         messages=[{"role": "user", "content": prompt}]
@@ -142,21 +131,18 @@ async def load_problems(filename: str):
 async def main():
     """Execute model evaluations on problem statements."""
     max_problems = 83
-    max_concurrent_tasks = 8  # Limit concurrent tasks
+    max_concurrent_tasks = 16  # Limit concurrent tasks
+    max_process_tasks = 8
 
-    semaphore = asyncio.Semaphore(max_concurrent_tasks*3)
+    semaphore = asyncio.Semaphore(max_concurrent_tasks)
     problems = await load_problems(problems_file) 
     random.shuffle(problems)
 
     # Use a ProcessPoolExecutor for CPU-bound tasks
-    with ProcessPoolExecutor(max_workers=max_concurrent_tasks) as executor:
+    with ProcessPoolExecutor(max_workers=max_process_tasks) as executor:
         tasks = []
         for model in models:
-            skip_ids = get_forbidden_ids(model)
             for index, (problem_id, problem) in enumerate(problems[:max_problems]):
-                if False and problem_id in skip_ids:
-                    print(f"Skipping problem {problem_id}")
-                    continue
                 task = process_one_problem(model, problem_id, problem, retry_on_error, index, semaphore, executor)
                 tasks.append(task)
     
