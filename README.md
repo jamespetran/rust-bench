@@ -12,6 +12,8 @@ The benchmark is easily gamed of course, just by writing a "Hello World" program
 
 ## Results ##
 
+![results image](rust_bench_image1.png)
+
 | Model | Total | | Hard Problems | | Easy Problems | |
 |-------|--------|--------|---------------|--------|---------------|--------|
 | | First Attempt | Correction | First Attempt | Correction | First Attempt | Correction |
