@@ -39,6 +39,18 @@ The benchmark is easily gamed of course, just by writing a "Hello World" program
 | microsoft/phi-3.5-mini-128k-instruct | 0.6% | 1.2% | 0.0% | 0.0% | 1.2% | 2.3% |
 | liquid/lfm-40b | 4.2% | 4.2% | 1.2% | 2.5% | 7.0% | 5.8% |
 
+And with several attempts:
+
+| Model | Total ||| Hard ||| Easy |||
+|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
+| | Pass@1 | Pass@3 | Pass@7 | Pass@1 | Pass@3 | Pass@7 | Pass@1 | Pass@3 | Pass@7 |
+| openai/o1-preview-2024-09-12 | 85.5 | - | - | 75.0 | - | - | 95.3 | - | - |
+| anthropic/claude-3-5-haiku | 75.6 | 90.2 | 94.4 | 59.6 | 81.2 | 88.3 | 90.4 | 98.7 | 100.0 |
+| qwen/qwen-2.5-coder-32b-instruct | 51.4 | 72.1 | 82.4 | 25.7 | 49.2 | 64.9 | 75.3 | 93.4 | 98.8 |
+| openai/gpt-4o-mini | 58.3 | 77.6 | 88.1 | 35 | 59.2 | 76.3 | 79.9 | 94.7 | 99.1 |
+| anthropic/claude-3.5-sonnet | 81.9 | 89.2 | - | 68.3 | 80.0 | - | 94.6 | 97.7 | - |
+| google/gemini-flash | 46.9 | 73.5 | - | 29.4 | 60.0 | - | 63.2 | 86.0 | - |
+
 ## Benchmark ##
 
 For now there are 83 questions. Some of the problems ask for concrete results, and it would be easy to write some tests to see if the code is correct (besides just compiling). Others are high level descriptions and it would be hard to evaluate how good the model did, so compiling provides an easy to check metric.
@@ -80,6 +92,23 @@ We will need to be able to:
 - Get the posts of a user's friends of friends.
 - Get the posts of a user's friends for a given time period.
 ```
+
+Some of the questions, like the ones above, dont specify anything specific to rust, others do:
+
+```
+Create a declarative macro tree! that builds a tree structure.
+
+- tree!(value) -> Create a leaf node with the given value.
+- tree!(value, child1, child2, ...) -> Create a node with the given value and children.
+
+The tree! macro should be able to handle any number of children.
+It should handle any type that implements clone.
+The resulting tree should be immutable.
+```
+
+## Cost ##
+
+Total cost has been ~70$. Almost 50% of it due to running o1-preview once for each problem.
 
 
 
