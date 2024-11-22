@@ -1,14 +1,14 @@
 # Rust Compiling Benchmark #
 
-This is a small benchmark to test how good coding LLMs are at writing rust code that compiles, without testing if its correct in any other way.
+This is a small benchmark to test how well coding LLMs can write Rust code that compiles, without evaluating whether the code is correct in any other way.
 
 ### Introduction ###
 
-The rust compiler is famously strict, this is necessary for the memory safety rust provides, and a rust program that compiles is less likely to have runtime errors than in other languages. But, as I have suffered many times, it can make writing a rust programm that compiles far from trivial.
+The Rust compiler is famously strict. This strictness is necessary for the memory safety that Rust provides, and a Rust program that compiles is less likely to have runtime errors compared to programs in other languages. However, as I have experienced many times, writing a Rust program that compiles can be far from trivial.
 
-I have also noticed that language models are not much better than me at this tasks, and often their suggestions dont compile either. So I wanted to compare how good at this task different models are, and how the task itself compares with other "reasoning" tasks like advanced math problems and competitive programming.
+I have also noticed that language models are not much better than I am at this task; often, their suggestions fail to compile as well. Therefore, I wanted to compare how proficient different models are at this task and how this task compares to other "reasoning" tasks, such as solving advanced math problems and competitive programming challenges.
 
-The benchmark is easily gamed of course, just by writing a "Hello World" programm that compiles for each question. But all the models that I test have been tested in other benchmarks, and it safe to assume they are actually trying.
+Of course, the benchmark can easily be gamed simply by writing a "Hello World" program that compiles for every question. However, all the models I am testing have been evaluated in other benchmarks, and it is safe to assume they are genuinely attempting to solve the problems.
 
 ## Results ##
 
@@ -53,9 +53,9 @@ And with several attempts:
 
 ## Benchmark ##
 
-For now there are 83 questions. Some of the problems ask for concrete results, and it would be easy to write some tests to see if the code is correct (besides just compiling). Others are high level descriptions and it would be hard to evaluate how good the model did, so compiling provides an easy to check metric.
+Currently, there are 83 questions. Some problems ask for concrete results, making it easy to write tests to verify if the code is correct (beyond simply compiling). Others are high-level descriptions, making it harder to evaluate the quality of the model's solution. In such cases, successful compilation provides an easy-to-check metric.
 
-All models are evaluated zero shot, and if the code fails to compile, they are given the error message to try to correct the code. I have separated the problems into "easy" and "hard" depending on how often they were solved correctly. They are 40 hard problems, and 43 easy ones.
+All models are evaluated in a zero-shot manner. If the code fails to compile, the error message is provided to allow the model to attempt a correction. I have categorized the problems into "easy" and "hard" based on how often they were solved correctly. There are 40 hard problems and 43 easy ones.
 
 The easiest problem is:
 
@@ -93,7 +93,7 @@ We will need to be able to:
 - Get the posts of a user's friends for a given time period.
 ```
 
-Some of the questions, like the ones above, dont specify anything specific to rust, others do:
+Some of the questions, like the ones above, do not specify anything specific to Rust, while others do:
 
 ```
 Create a declarative macro tree! that builds a tree structure.
@@ -108,7 +108,7 @@ The resulting tree should be immutable.
 
 ## Cost ##
 
-Total cost has been ~70$. Almost 50% of it due to running o1-preview once for each problem.
+The total cost has been approximately $70, with almost 50% of it resulting from running o1-preview once for each problem.
 
 
 
