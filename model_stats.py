@@ -23,13 +23,14 @@ def calculate_pass_at_k(n: int, m: int, k: int) -> float:
     # Probability of drawing at least one correct solution
     return 1 - p_fail
 
-pass_3_models = ["anthropic/claude-3.5-sonnet", "qwen/qwen-2.5-coder-32b-instruct", "openai/gpt-4o-mini", "anthropic/claude-3-5-haiku", "google/gemini-flash-1.5"]
-pass_7_models = ["qwen/qwen-2.5-coder-32b-instruct", "openai/gpt-4o-mini", "anthropic/claude-3-5-haiku"]
+#pass_3_models = ["anthropic/claude-3.5-sonnet", "qwen/qwen-2.5-coder-32b-instruct", "openai/gpt-4o-mini", "anthropic/claude-3-5-haiku", "google/gemini-flash-1.5"]
+#pass_7_models = ["qwen/qwen-2.5-coder-32b-instruct", "openai/gpt-4o-mini", "anthropic/claude-3-5-haiku"]
+pass_3_models, pass_7_models = [], []
 
 stats_first = defaultdict(lambda: defaultdict(lambda: [0, 0]))  # [total, successes]
 stats_retry = defaultdict(lambda: defaultdict(lambda: [0, 0, 0]))  # [total, successes_first, successes_second]
 
-filename = "results/merged.jsonl"
+filename = "results/2024-11-22.jsonl"
 problem_file = "problems.jsonl"
 with open(filename, "r") as f:
     for line in f:
