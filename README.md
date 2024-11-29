@@ -12,7 +12,7 @@ Of course, the benchmark can easily be gamed simply by writing a "Hello World" p
 
 ## Results ##
 
-![results image](rust_bench_image1.png)
+![results image](Figure_1_rust_bench.png)
 
 | Model | Total | | Hard Problems | | Easy Problems | |
 |-------|--------|--------|---------------|--------|---------------|--------|
