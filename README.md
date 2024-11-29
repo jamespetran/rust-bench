@@ -38,6 +38,7 @@ Of course, the benchmark can easily be gamed simply by writing a "Hello World" p
 | deepseek/deepseek-chat | 35.5% | 52.4% | 10.0% | 27.5% | 59.3% | 75.6% |
 | microsoft/phi-3.5-mini-128k-instruct | 0.6% | 1.2% | 0.0% | 0.0% | 1.2% | 2.3% |
 | liquid/lfm-40b | 4.2% | 4.2% | 1.2% | 2.5% | 7.0% | 5.8% |
+| mistralai/codestral-22b-v0.1 | 37.1% | 61.4% | 1.2% | 36.2% | 70.5% | 84.9% |
 
 And with several attempts:
 
