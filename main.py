@@ -281,7 +281,7 @@ async def main_async():
 
     if args.eval_existing:
         # When evaluating existing solutions, load from the provided file
-        problems_to_process = await load_problems(args.eval_existing, eval_existing=None)
+        problems_to_process = await load_problems(args.eval_existing, eval_existing=args.eval_existing)
         # In eval mode, we only process problems from the eval_existing file
         # The 'model' to pass to process_one_problem is the one provided via --actual_model_id
         models_to_iterate = [args.actual_model_id] if args.actual_model_id else ["unknown_model_id"]
